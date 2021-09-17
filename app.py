@@ -1,8 +1,12 @@
 from models.clasificacion import Clasificacion
 
-listClasificaciones = Clasificacion(1)
+# listClasificaciones = Clasificacion(1)
 
-print(listClasificaciones.cantidadClasificaciones)
+# print(Clasificacion.cantidadClasificaciones)
 
-print(listClasificaciones.listClasificacion())
-print(listClasificaciones.cantidadClasificaciones)
+# print(Clasificacion.listClasificacion())
+# print(Clasificacion.cantidadClasificaciones)
+
+
+claseSalsas = Clasificacion("Pollo")
+claseSalsas.create_clasificacion()
