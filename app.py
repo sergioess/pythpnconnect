@@ -8,5 +8,17 @@ from models.clasificacion import Clasificacion
 # print(Clasificacion.cantidadClasificaciones)
 
 
-claseSalsas = Clasificacion("Pollo")
-claseSalsas.create_clasificacion()
+# CREAR REGISTRO
+# clasiSalsas = Clasificacion("Salsas")
+# clasiSalsas.create_clasificacion()
+
+# CONSULTAR POR NOMBRE
+# clasiSalsas = Clasificacion('Salsas')
+# clasiSalsas.get_nombre()
+# print(
+#     f"La Clasificacion tiene id {clasiSalsas.id} y nombre {clasiSalsas.nombre}")
+
+
+# ELIMINAR REGISTRO
+clasiSalsas = Clasificacion('Salsas')
+clasiSalsas.delete()

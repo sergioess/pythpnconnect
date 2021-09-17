@@ -51,3 +51,27 @@ class Clasificacion:
         finally:
             cur.close()
             self.connection.close()
+
+    def delete(self):
+        try:
+            cur = self.connection.cursor()
+            cur.execute(
+                'DELETE FROM clasificaciones WHERE nombre=%s', (self.nombre,))
+            self.connection.commit()
+        finally:
+            cur.close()
+            self.connection.close()
+
+    def get_nombre(self):
+        try:
+            cur = self.connection.cursor()
+            cur.execute(
+                "SELECT * FROM clasificaciones WHERE nombre='%s'" % (self.nombre))
+
+            clasificacion = cur.fetchone()
+            self.id = clasificacion[0]
+            self.nombre = clasificacion[1]
+
+        finally:
+            cur.close()
+            self.connection.close()
