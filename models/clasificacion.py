@@ -29,9 +29,9 @@ class Clasificacion:
         # conn = psycopg2.connect(
         #     host='ec2-3-231-69-204.compute-1.amazonaws.com', port=5432, database='d3hr8qndm4p50h', user='oxwttxarfidlxi', password='89e47cacfc5926776ab52a7e485b08a91bf9632736ca0843d80b6356b506f3f2')
         cur = self.connection.cursor()
-        self.cur.execute('SELECT * FROM clasificaciones')
+        self.cur.execute('SELECT * FROM categorias')
 
-        self.cur.execute('SELECT * FROM clasificaciones')
+        self.cur.execute('SELECT * FROM categorias')
         clasificaciones = self.cur.fetchall()
         cantidadClasificaciones = len(clasificaciones)
 
@@ -44,7 +44,7 @@ class Clasificacion:
         try:
             cur = self.connection.cursor()
             cur.execute(
-                "INSERT INTO clasificaciones (nombre, id_tienda, activo) VALUES ('%s', 1, 1)" % (self.nombre))
+                "INSERT INTO categorias (nombre, id_tienda, activo) VALUES ('%s', 1, 1)" % (self.nombre))
             # cur.execute(
             #     "INSERT INTO clasificaciones (nombre, id_tienda, activo) VALUES (%s,1,1)", (self.nombre))
             self.connection.commit()
@@ -56,7 +56,7 @@ class Clasificacion:
         try:
             cur = self.connection.cursor()
             cur.execute(
-                'DELETE FROM clasificaciones WHERE nombre=%s', (self.nombre,))
+                'DELETE FROM categorias WHERE nombre=%s', (self.nombre,))
             self.connection.commit()
         finally:
             cur.close()
@@ -66,7 +66,7 @@ class Clasificacion:
         try:
             cur = self.connection.cursor()
             cur.execute(
-                "SELECT * FROM clasificaciones WHERE nombre='%s'" % (self.nombre))
+                "SELECT * FROM categorias WHERE nombre='%s'" % (self.nombre))
 
             clasificacion = cur.fetchone()
             self.id = clasificacion[0]
